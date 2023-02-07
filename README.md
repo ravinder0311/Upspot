@@ -5,8 +5,7 @@ In data analysis, anomaly detection (also referred to as outlier detection and s
 
 ## Data Preparation:
 
-each text format data is merged
-created dataframe
+each text format data is merged to create one dataset
 
 ## Model Building
 Using Isolation forest , detected anomalies in the data
