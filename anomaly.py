@@ -6,7 +6,7 @@ import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-from sklearn.ensemble import IsolationForest
+#from sklearn.ensemble import IsolationForest
 
 
 
