@@ -9,3 +9,10 @@ each text format data is merged to create one dataset
 
 ## Model Building
 Using Isolation forest , detected anomalies in the data
+
+## saving model
+model is saved using joblib library
+
+## Deployment
+created web application to detect anomalies when data is uploaded
+
