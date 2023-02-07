@@ -73,13 +73,13 @@ with upload1:
 with upload2:
     data = st.file_uploader("Upload Clean Dataset", type=["txt"])
     if data is not None:
-        file = os.getcwd()+data.name
+        file = data.name
     else :
         file = 'data88.txt'
 data_name = f'<p style="font-family:sans-serif; color:#AC123E;font-size: 22px;">{file}</p>'
 st.markdown(f"**<h1 style='text-align: center; '>{data_name}</h1>**", unsafe_allow_html=True)    
 
-
+st.write(os.getcwd())
 # +
 def main():
     with open(file, 'r') as f:
