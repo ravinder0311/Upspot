@@ -1,4 +1,4 @@
-
+import os
 import base64
 import streamlit as st
 import pandas as pd
@@ -73,7 +73,7 @@ with upload1:
 with upload2:
     data = st.file_uploader("Upload Clean Dataset", type=["txt"])
     if data is not None:
-        file = data.name
+        file = os.getcwd()+data.name
     else :
         file = 'data88.txt'
 data_name = f'<p style="font-family:sans-serif; color:#AC123E;font-size: 22px;">{file}</p>'
