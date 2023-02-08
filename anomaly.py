@@ -2,6 +2,7 @@ import os
 import base64
 import streamlit as st
 import pandas as pd
+import numpy as np
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -82,15 +83,13 @@ st.markdown(f"**<h1 style='text-align: center; '>{data_name}</h1>**", unsafe_all
 st.write(os.getcwd())
 # +
 def main():
-    with open(file, 'r') as f:
-        lines = f.readlines() # reading data
-        lines = [line.replace(' ', '') for line in lines] # removing spaces
-        lines = lines[0].split(',') # splitting each data point
-        df = pd.DataFrame(lines) # converting to data frame
-        df.drop(df.shape[0]-1,inplace=True) # dropping last values which is  " "
-        df[0] = df[0].astype('int') 
-        df.columns = ['values'] # renamimg column name
-        df.reset_index(inplace = True, drop=True) # resetting index
+    data = np.loadtxt(file, delimiter=',', dtype=str)
+    df = pd.DataFrame(data,columns=['values'])
+    df.drop(df.shape[0]-1,inplace=True)
+    df['values'] = df['values'].astype(int)
+    df.reset_index(inplace = True, drop=True) # resetting index
+    df1 = df.copy()
+    df1['values'] = df1['values'].astype('str')
     
     df['values'] = df['values'].astype('str')
     fig, ax = plt.subplots()
