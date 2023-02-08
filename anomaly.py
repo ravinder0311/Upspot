@@ -82,7 +82,8 @@ st.markdown(f"**<h1 style='text-align: center; '>{data_name}</h1>**", unsafe_all
 
 st.write(file)
 st.write(os.getcwd())
-# +
+for val in file:
+            st.write(val)
 def main():
     data = np.loadtxt(file, delimiter=',', dtype=str)
     df = pd.DataFrame(data,columns=['values'])
