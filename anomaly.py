@@ -80,6 +80,7 @@ with upload2:
 data_name = f'<p style="font-family:sans-serif; color:#AC123E;font-size: 22px;">{file}</p>'
 st.markdown(f"**<h1 style='text-align: center; '>{data_name}</h1>**", unsafe_allow_html=True)    
 
+st.write(file)
 st.write(os.getcwd())
 # +
 def main():
