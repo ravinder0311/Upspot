@@ -15,10 +15,6 @@ st.set_page_config(page_title = 'Anomaly Detection',layout="wide")
 
 # To hide hamburger (top right corner) and “Made with Streamlit” footer :
 
-
-
-
-# +
 hide_streamlit_style1 = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -58,12 +54,8 @@ hide_streamlit_style2 = """
             <style>
             """
 st.markdown(hide_streamlit_style2, unsafe_allow_html=True)
-# -
-
-
 
 upload1,uploadsp,upload2 = st.columns((2,.1,2))
-
 
 with upload1:
     
@@ -102,6 +94,10 @@ def main():
                                         'x':0.5,
                                         'xanchor': 'center',
                                         'yanchor': 'top'},title_font_color="red")
+        fig.update_layout(
+                            autosize=False,
+                            width=500,
+                            height=dfcat['values'].nunique()*80)
     
         st.plotly_chart(fig)
     with plot1 :
