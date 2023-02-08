@@ -74,16 +74,11 @@ with upload1:
 with upload2:
     data = st.file_uploader("Upload Clean Dataset", type=["txt"])
     if data is not None:
-        file = data.name
+        file = pd.read_fwf(data, colspecs='infer', widths=None, infer_nrows=100).columns.tolist()
     else :
         file = 'data88.txt'
 data_name = f'<p style="font-family:sans-serif; color:#AC123E;font-size: 22px;">{file}</p>'
 st.markdown(f"**<h1 style='text-align: center; '>{data_name}</h1>**", unsafe_allow_html=True)    
-
-st.write(file)
-st.write(os.getcwd())
-for val in file:
-            st.write(val)
 def main():
     data = np.loadtxt(file, delimiter=',', dtype=str)
     df = pd.DataFrame(data,columns=['values'])
